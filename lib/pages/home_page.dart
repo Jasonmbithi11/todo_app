@@ -41,9 +41,32 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo App'),
+        title: const Text('Jason Todo App'),
         backgroundColor: Colors.deepPurpleAccent,
         foregroundColor: Colors.white,
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text('About'),
+                    content: const Text('This is a simple TodoList App Jason created inorder to keep track his tasks.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            icon: const Icon(Icons.info_outline),
+          ),
+        ],
       ),
 
      body: ListView.builder(
